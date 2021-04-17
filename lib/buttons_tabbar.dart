@@ -413,7 +413,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
       if (position + size - offset < screenWidth)
         offset = position + size - screenWidth;
     }
-    offset *= (_textLTR ? 1 : -1);
+    offset *= (_textLTR ? 1 : -1) - widget.leftpadding;
 
     // scroll the calculated ammount
     _scrollController.animateTo(offset + _scrollController.offset,
