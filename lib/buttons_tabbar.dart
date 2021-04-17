@@ -417,7 +417,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
 
     // scroll the calculated ammount
     _scrollController.animateTo(
-        offset + widget.leftpadding + _scrollController.offset,
+        offset - widget.leftpadding + _scrollController.offset,
         duration: new Duration(milliseconds: widget.duration),
         curve: Curves.easeInOut);
   }
