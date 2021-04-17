@@ -377,7 +377,8 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
     // get its size
     double size = renderBox.size.width;
     // and position
-    double position = renderBox.localToGlobal(Offset.zero).dx;
+    double position =
+        renderBox.localToGlobal(Offset.zero).dx - widget.leftpadding;
 
     // this is how much the button is away from the center of the screen and how much we must scroll to get it into place
     double offset =
@@ -390,7 +391,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
           .currentContext
           ?.findRenderObject() as RenderBox;
       // get the position of the first button of the TabBar
-      position = renderBox.localToGlobal(Offset.zero).dx + widget.leftpadding;
+      position = renderBox.localToGlobal(Offset.zero).dx - widget.leftpadding;
 
       // if the offset pulls the first button away from the left side, we limit that movement so the first button is stuck to the left side
       if (position > offset) offset = position;
