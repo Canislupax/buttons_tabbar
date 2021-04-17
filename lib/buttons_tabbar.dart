@@ -390,10 +390,10 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
           .currentContext
           ?.findRenderObject() as RenderBox;
       // get the position of the first button of the TabBar
-      position = renderBox.localToGlobal(Offset.zero).dx - widget.leftpadding;
+      position = renderBox.localToGlobal(Offset.zero).dx;
 
       // if the offset pulls the first button away from the left side, we limit that movement so the first button is stuck to the left side
-      if (position > offset) offset = position;
+      if (position > offset) offset = position + widget.leftpadding;
     } else {
       // if the button is to the right of the middle
 
@@ -402,7 +402,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
           .currentContext
           ?.findRenderObject() as RenderBox;
       // get its position
-      position = renderBox.localToGlobal(Offset.zero).dx - widget.leftpadding;
+      position = renderBox.localToGlobal(Offset.zero).dx;
       // and size
       size = renderBox.size.width;
 
@@ -413,7 +413,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
       if (position + size - offset < screenWidth)
         offset = position + size - screenWidth;
     }
-    offset *= (_textLTR ? 1 : -1) + widget.leftpadding;
+    offset *= (_textLTR ? 1 : -1);
 
     // scroll the calculated ammount
     _scrollController.animateTo(offset + _scrollController.offset,
