@@ -6,6 +6,7 @@ const double _kTabHeight = 46.0;
 class ButtonsTabBar extends StatefulWidget implements PreferredSizeWidget {
   ButtonsTabBar({
     Key? key,
+    required this.leftpadding,
     required this.tabs,
     this.controller,
     this.duration = 250,
@@ -23,6 +24,8 @@ class ButtonsTabBar extends StatefulWidget implements PreferredSizeWidget {
     this.radius = 7.0,
     this.height = _kTabHeight,
   }) : super(key: key);
+
+  final int leftpadding;
 
   /// Typically a list of two or more [Tab] widgets.
   ///
