@@ -393,7 +393,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
       position = renderBox.localToGlobal(Offset.zero).dx;
 
       // if the offset pulls the first button away from the left side, we limit that movement so the first button is stuck to the left side
-      if (position > offset) offset = position + widget.leftpadding;
+      if (position > offset) offset = position - widget.leftpadding;
     } else {
       // if the button is to the right of the middle
 
