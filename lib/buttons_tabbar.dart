@@ -381,8 +381,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
         renderBox.localToGlobal(Offset.zero).dx - widget.leftpadding;
 
     // this is how much the button is away from the center of the screen and how much we must scroll to get it into place
-    double offset =
-        (position + size / 2) - screenWidth / 2 + widget.leftpadding;
+    double offset = (position + size / 2) - screenWidth / 2;
 
     // if the button is to the left of the middle
     if (offset < 0) {
