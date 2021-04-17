@@ -393,7 +393,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
       position = renderBox.localToGlobal(Offset.zero).dx;
 
       // if the offset pulls the first button away from the left side, we limit that movement so the first button is stuck to the left side
-      if (position > offset) offset = position - widget.leftpadding;
+      if (position > offset) offset = position;
     } else {
       // if the button is to the right of the middle
 
@@ -416,7 +416,8 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
     offset *= (_textLTR ? 1 : -1);
 
     // scroll the calculated ammount
-    _scrollController.animateTo(offset + _scrollController.offset,
+    _scrollController.animateTo(
+        offset + widget.leftpadding + _scrollController.offset,
         duration: new Duration(milliseconds: widget.duration),
         curve: Curves.easeInOut);
   }
