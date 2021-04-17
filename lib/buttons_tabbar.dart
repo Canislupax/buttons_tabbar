@@ -283,7 +283,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
                 : Container(),
             SizedBox(
               width: tab.icon == null || (tab.text == null && tab.child == null)
-                  ? 0
+                  ? 8
                   : widget.labelSpacing,
             ),
             tab.text != null
