@@ -316,13 +316,16 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
       builder: (context, child) => SizedBox(
         key: _tabsContainerKey,
         height: widget.preferredSize.height,
-        child: ListView.builder(
-          physics: widget.physics,
-          controller: _scrollController,
-          scrollDirection: Axis.horizontal,
-          itemCount: widget.tabs.length,
-          itemBuilder: (BuildContext context, int index) =>
-              _buildButton(index, widget.tabs[index] as Tab),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: ListView.builder(
+            physics: widget.physics,
+            controller: _scrollController,
+            scrollDirection: Axis.horizontal,
+            itemCount: widget.tabs.length,
+            itemBuilder: (BuildContext context, int index) =>
+                _buildButton(index, widget.tabs[index] as Tab),
+          ),
         ),
       ),
     );
@@ -415,8 +418,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
     offset *= (_textLTR ? 1 : -1);
 
     // scroll the calculated ammount
-    _scrollController.animateTo(
-        offset + _scrollController.offset - widget.leftpadding,
+    _scrollController.animateTo(offset + _scrollController.offset,
         duration: new Duration(milliseconds: widget.duration),
         curve: Curves.easeInOut);
   }
