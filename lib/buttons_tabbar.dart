@@ -403,7 +403,7 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
           .currentContext
           ?.findRenderObject() as RenderBox;
       // get its position
-      position = renderBox.localToGlobal(Offset.zero).dx;
+      position = renderBox.localToGlobal(Offset.zero).dx - widget.leftpadding;
       // and size
       size = renderBox.size.width;
 
