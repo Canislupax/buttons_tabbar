@@ -316,16 +316,13 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
       builder: (context, child) => SizedBox(
         key: _tabsContainerKey,
         height: widget.preferredSize.height,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: ListView.builder(
-            physics: widget.physics,
-            controller: _scrollController,
-            scrollDirection: Axis.horizontal,
-            itemCount: widget.tabs.length,
-            itemBuilder: (BuildContext context, int index) =>
-                _buildButton(index, widget.tabs[index] as Tab),
-          ),
+        child: ListView.builder(
+          physics: widget.physics,
+          controller: _scrollController,
+          scrollDirection: Axis.horizontal,
+          itemCount: widget.tabs.length,
+          itemBuilder: (BuildContext context, int index) =>
+              _buildButton(index, widget.tabs[index] as Tab),
         ),
       ),
     );
@@ -383,7 +380,8 @@ class _ButtonsTabBarState extends State<ButtonsTabBar>
     double position = renderBox.localToGlobal(Offset.zero).dx;
 
     // this is how much the button is away from the center of the screen and how much we must scroll to get it into place
-    double offset = (position + size / 2) - screenWidth / 2;
+    double offset =
+        (position + size / 2) - screenWidth / 2 + widget.leftpadding;
 
     // if the button is to the left of the middle
     if (offset < 0) {
